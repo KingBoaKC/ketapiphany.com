@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import GalleryCard from '@/components/GalleryCard'
-import GalleryFilters from '@/components/GalleryFilters'
-import { Post, PostCategory } from '@/lib/types'
+import { Post } from '@/lib/types'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Gallery — Ketapiphany',
-  description: 'Browse art, poetry, journals, and stories shared by the Ketapiphany community.',
+  description: 'Browse artwork and images shared by the Ketapiphany community.',
 }
 
 export const revalidate = 60
@@ -35,41 +35,25 @@ const DEMO_POSTS: Post[] = [
   },
 ]
 
-async function getPosts(category?: PostCategory): Promise<Post[]> {
+async function getImagePosts(): Promise<Post[]> {
   try {
     const supabase = await createClient()
-    let query = supabase
+    const { data, error } = await supabase
       .from('posts')
       .select('*')
       .eq('status', 'approved')
+      .eq('post_type', 'image')
       .order('created_at', { ascending: false })
 
-    if (category) {
-      query = query.eq('category', category)
-    }
-
-    const { data, error } = await query
-    if (error || !data || data.length === 0) {
-      return category ? DEMO_POSTS.filter((p) => p.category === category) : DEMO_POSTS
-    }
+    if (error || !data || data.length === 0) return DEMO_POSTS
     return data as Post[]
   } catch {
-    return category ? DEMO_POSTS.filter((p) => p.category === category) : DEMO_POSTS
+    return DEMO_POSTS
   }
 }
 
-interface PageProps {
-  searchParams: Promise<{ category?: string }>
-}
-
-export default async function GalleryPage({ searchParams }: PageProps) {
-  const { category } = await searchParams
-  const validCategories: PostCategory[] = ['art', 'poetry', 'journal', 'story']
-  const activeCategory = validCategories.includes(category as PostCategory)
-    ? (category as PostCategory)
-    : undefined
-
-  const posts = await getPosts(activeCategory)
+export default async function GalleryPage() {
+  const posts = await getImagePosts()
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
@@ -84,22 +68,34 @@ export default async function GalleryPage({ searchParams }: PageProps) {
             marginBottom: '0.75rem',
           }}
         >
-          The Gallery
+          Art Gallery
         </h1>
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: 480, margin: '0 auto' }}>
-          Art, poetry, journals, and stories from the community.
-          Every piece is a moment of discovery.
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: 480, margin: '0 auto 1.5rem' }}>
+          Paintings, drawings, and images from the community.
+          Every piece emerged from a session of deep inner work.
         </p>
+        <Link
+          href="/writings"
+          style={{
+            color: 'var(--primary)',
+            fontSize: '0.875rem',
+            fontWeight: 500,
+            textDecoration: 'none',
+            border: '1px solid var(--border)',
+            padding: '0.35rem 1rem',
+            borderRadius: '999px',
+            display: 'inline-block',
+          }}
+        >
+          Looking for poetry & writing? →
+        </Link>
       </div>
-
-      {/* Filters */}
-      <GalleryFilters active={activeCategory} />
 
       {/* Grid */}
       {posts.length === 0 ? (
         <div className="text-center py-24">
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
-            No posts in this category yet.{' '}
+            No artwork yet.{' '}
             <a href="/submit" style={{ color: 'var(--primary)', textDecoration: 'none' }}>
               Be the first to share.
             </a>
