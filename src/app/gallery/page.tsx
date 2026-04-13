@@ -13,42 +13,25 @@ export const revalidate = 60
 
 const DEMO_POSTS: Post[] = [
   {
-    id: 'd1', created_at: '2025-03-10T14:22:00Z', author_name: 'River',
-    title: 'The Door Was Made of Light',
-    content: 'I saw a door made entirely of soft light — not blinding, just warm. Like sunlight through linen. I walked through and on the other side was a version of me I hadn\'t met yet. She was smiling. I think I\'ve been looking for her my whole life.',
-    image_url: null, post_type: 'text', category: 'journal', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd2', created_at: '2025-03-08T09:00:00Z', author_name: 'Maeve',
-    title: 'Untitled (violet)',
+    id: 'd1', created_at: '2026-04-12T14:22:00Z', author_name: 'Anonymous',
+    title: 'The Dancer',
     content: null,
-    image_url: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80',
+    image_url: '/gallery/IMG_5616.png',
     post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
   },
   {
-    id: 'd3', created_at: '2025-03-07T20:15:00Z', author_name: 'Sol',
-    title: 'Small Things',
-    content: 'the kettle whistles\nand I am still here —\nstill tender,\nstill belonging\nto something\nlarger than fear.',
-    image_url: null, post_type: 'text', category: 'poetry', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd4', created_at: '2025-03-05T11:30:00Z', author_name: 'Anonymous',
-    title: 'I Forgave My Mother',
-    content: 'Not all at once. It came in waves — first just seeing her as a child herself, scared and doing what she knew. Then something loosened in my chest I didn\'t know was there. Three sessions. A lifetime of holding.',
-    image_url: null, post_type: 'text', category: 'journal', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd5', created_at: '2025-03-03T16:00:00Z', author_name: 'Thea',
-    title: 'Watercolor Study No. 3',
+    id: 'd2', created_at: '2026-04-12T13:00:00Z', author_name: 'Anonymous',
+    title: 'The Eye',
     content: null,
-    image_url: 'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=600&q=80',
+    image_url: '/gallery/IMG_5615.png',
     post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
   },
   {
-    id: 'd6', created_at: '2025-02-28T08:45:00Z', author_name: 'Elara',
-    title: 'When I Was The Ocean',
-    content: 'There is a story I need to tell about the day I became water. Not metaphorically — at least it didn\'t feel that way. I dissolved into something vast and there was no grief there, no weight. Just movement. I understood, briefly, what it means to be part of everything.',
-    image_url: null, post_type: 'text', category: 'story', status: 'approved', moderator_notes: null,
+    id: 'd3', created_at: '2026-04-12T12:00:00Z', author_name: 'Anonymous',
+    title: 'Seeing',
+    content: null,
+    image_url: '/gallery/IMG_5614.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
   },
 ]
 
