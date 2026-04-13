@@ -44,7 +44,7 @@ export default function Footer() {
         </nav>
 
         <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
-          © {new Date().getFullYear()} Ketapiphany. All rights reserved.
+          © 2026 Ketapiphany. Proudly powered by NoodleNugget.
         </p>
       </div>
     </footer>
