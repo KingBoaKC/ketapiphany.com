@@ -26,14 +26,14 @@ export default function Nav() {
       }}
       className="sticky top-0 z-50"
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-40">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 no-underline">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo.png"
             alt="Ketapiphany"
-            style={{ height: 72, width: 'auto' }}
+            style={{ height: 144, width: 'auto' }}
           />
           <span
             style={{
