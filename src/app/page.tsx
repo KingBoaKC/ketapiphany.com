@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
-import GalleryCard from '@/components/GalleryCard'
 import { Post } from '@/lib/types'
 
 const DEMO_IMAGE_POSTS: Post[] = [
@@ -174,9 +173,27 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
-          {imagePosts.map((post) => (
-            <GalleryCard key={post.id} post={post} />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
+          {imagePosts.slice(0, 3).map((post) => (
+            <Link
+              key={post.id}
+              href="/gallery"
+              style={{
+                display: 'block',
+                aspectRatio: '1 / 1',
+                borderRadius: '10px',
+                overflow: 'hidden',
+                backgroundColor: 'var(--primary-faint)',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={post.image_url ?? ''}
+                alt={post.title}
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </Link>
           ))}
         </div>
       </section>

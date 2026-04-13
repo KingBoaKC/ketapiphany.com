@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
 import { createClient } from '@/lib/supabase/server'
-import GalleryCard from '@/components/GalleryCard'
+import GalleryGrid from '@/components/GalleryGrid'
 import { Post } from '@/lib/types'
 import Link from 'next/link'
 
@@ -145,19 +144,7 @@ export default async function GalleryPage() {
           </p>
         </div>
       ) : (
-        <div
-          style={{
-            columnCount: 'auto' as unknown as number,
-            columnWidth: '280px',
-            columnGap: '1.25rem',
-          }}
-        >
-          {posts.map((post) => (
-            <div key={post.id} style={{ breakInside: 'avoid', marginBottom: '1.25rem' }}>
-              <GalleryCard post={post} />
-            </div>
-          ))}
-        </div>
+        <GalleryGrid posts={posts} />
       )}
     </div>
   )
