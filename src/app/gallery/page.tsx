@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { createClient } from '@/lib/supabase/server'
 import GalleryCard from '@/components/GalleryCard'
 import { Post } from '@/lib/types'

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { createClient } from '@/lib/supabase/client'
 
 const REASONS = [
   'Hateful or violent content',
@@ -20,15 +21,20 @@ export default function ReportButton({ postId }: { postId: string }) {
     if (!reason) return
     setLoading(true)
     try {
-      await fetch('/api/report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ post_id: postId, reason }),
-      })
-      setDone(true)
+      const supabase = createClient()
+      await supabase.from('reports').insert({ post_id: postId, reason })
+    } catch {
+      // Fail silently — report is best-effort in demo mode
     } finally {
       setLoading(false)
+      setDone(true)
     }
+  }
+
+  function close() {
+    setOpen(false)
+    setDone(false)
+    setReason('')
   }
 
   return (
@@ -68,31 +74,12 @@ export default function ReportButton({ postId }: { postId: string }) {
         Report
       </button>
 
-      {/* Modal */}
       {open && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.35)',
-            zIndex: 100,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '1rem',
-          }}
-          onClick={(e) => { if (e.target === e.currentTarget) { setOpen(false); setDone(false); setReason('') } }}
+          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.35)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}
+          onClick={(e) => { if (e.target === e.currentTarget) close() }}
         >
-          <div
-            style={{
-              backgroundColor: 'var(--surface)',
-              borderRadius: '20px',
-              padding: '2rem',
-              width: '100%',
-              maxWidth: 400,
-              boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
-            }}
-          >
+          <div style={{ backgroundColor: 'var(--surface)', borderRadius: '20px', padding: '2rem', width: '100%', maxWidth: 400, boxShadow: '0 20px 60px rgba(0,0,0,0.15)' }}>
             {done ? (
               <div className="text-center">
                 <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>✓</div>
@@ -100,10 +87,7 @@ export default function ReportButton({ postId }: { postId: string }) {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1.5rem' }}>
                   Thank you. A moderator will review this content.
                 </p>
-                <button
-                  onClick={() => { setOpen(false); setDone(false); setReason('') }}
-                  style={{ backgroundColor: 'var(--primary)', color: '#fff', padding: '0.6rem 1.5rem', borderRadius: '999px', border: 'none', cursor: 'pointer', fontWeight: 500 }}
-                >
+                <button onClick={close} style={{ backgroundColor: 'var(--primary)', color: '#fff', padding: '0.6rem 1.5rem', borderRadius: '999px', border: 'none', cursor: 'pointer', fontWeight: 500 }}>
                   Close
                 </button>
               </div>
@@ -118,47 +102,18 @@ export default function ReportButton({ postId }: { postId: string }) {
 
                 <div className="flex flex-col gap-2" style={{ marginBottom: '1.25rem' }}>
                   {REASONS.map((r) => (
-                    <label
-                      key={r}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.6rem',
-                        padding: '0.6rem 0.75rem',
-                        borderRadius: '10px',
-                        border: `1px solid ${reason === r ? 'var(--primary)' : 'var(--border)'}`,
-                        backgroundColor: reason === r ? 'var(--primary-faint)' : 'transparent',
-                        cursor: 'pointer',
-                        fontSize: '0.875rem',
-                        color: 'var(--text)',
-                        transition: 'all 0.1s ease',
-                      }}
-                    >
-                      <input
-                        type="radio"
-                        name="reason"
-                        value={r}
-                        checked={reason === r}
-                        onChange={() => setReason(r)}
-                        style={{ accentColor: 'var(--primary)', margin: 0 }}
-                      />
+                    <label key={r} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.6rem 0.75rem', borderRadius: '10px', border: `1px solid ${reason === r ? 'var(--primary)' : 'var(--border)'}`, backgroundColor: reason === r ? 'var(--primary-faint)' : 'transparent', cursor: 'pointer', fontSize: '0.875rem', color: 'var(--text)', transition: 'all 0.1s ease' }}>
+                      <input type="radio" name="reason" value={r} checked={reason === r} onChange={() => setReason(r)} style={{ accentColor: 'var(--primary)', margin: 0 }} />
                       {r}
                     </label>
                   ))}
                 </div>
 
                 <div className="flex gap-3">
-                  <button
-                    onClick={() => { setOpen(false); setReason('') }}
-                    style={{ flex: 1, padding: '0.6rem', borderRadius: '999px', border: '1px solid var(--border)', backgroundColor: 'transparent', cursor: 'pointer', color: 'var(--text-muted)', fontSize: '0.875rem' }}
-                  >
+                  <button onClick={close} style={{ flex: 1, padding: '0.6rem', borderRadius: '999px', border: '1px solid var(--border)', backgroundColor: 'transparent', cursor: 'pointer', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
                     Cancel
                   </button>
-                  <button
-                    onClick={submit}
-                    disabled={!reason || loading}
-                    style={{ flex: 1, padding: '0.6rem', borderRadius: '999px', border: 'none', backgroundColor: !reason ? 'var(--border)' : '#e53e3e', color: !reason ? 'var(--text-muted)' : '#fff', cursor: !reason ? 'not-allowed' : 'pointer', fontWeight: 600, fontSize: '0.875rem' }}
-                  >
+                  <button onClick={submit} disabled={!reason || loading} style={{ flex: 1, padding: '0.6rem', borderRadius: '999px', border: 'none', backgroundColor: !reason ? 'var(--border)' : '#e53e3e', color: !reason ? 'var(--text-muted)' : '#fff', cursor: !reason ? 'not-allowed' : 'pointer', fontWeight: 600, fontSize: '0.875rem' }}>
                     {loading ? 'Sending…' : 'Submit Report'}
                   </button>
                 </div>

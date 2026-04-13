@@ -6,50 +6,10 @@ export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [done, setDone] = useState(false)
-  const [error, setError] = useState<string | null>(null)
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      })
-
-      if (!res.ok) throw new Error('Send failed')
-      setDone(true)
-    } catch {
-      setError('Something went wrong. Please email us directly at noodlenuggetllc@gmail.com')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  if (done) {
-    return (
-      <div
-        style={{
-          backgroundColor: 'var(--surface)',
-          border: '1px solid var(--border)',
-          borderRadius: '20px',
-          padding: '3rem 2rem',
-          textAlign: 'center',
-        }}
-      >
-        <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>💌</div>
-        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '1.5rem', fontWeight: 400, color: 'var(--text)', marginBottom: '0.5rem' }}>
-          Message sent
-        </h2>
-        <p style={{ color: 'var(--text-muted)' }}>We&apos;ll get back to you as soon as we can.</p>
-      </div>
-    )
-  }
+  const subject = encodeURIComponent(`Message from ${name || 'Ketapiphany visitor'}`)
+  const body = encodeURIComponent(`Name: ${name || 'Not provided'}\nEmail: ${email}\n\n${message}`)
+  const mailtoHref = `mailto:noodlenuggetllc@gmail.com?subject=${subject}&body=${body}`
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
@@ -64,8 +24,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
+    <div
       style={{
         backgroundColor: 'var(--surface)',
         border: '1px solid var(--border)',
@@ -88,11 +47,10 @@ export default function ContactForm() {
 
       <div style={{ marginBottom: '1.25rem' }}>
         <label style={{ display: 'block', fontWeight: 500, fontSize: '0.875rem', color: 'var(--text)', marginBottom: '0.4rem' }}>
-          Email <span style={{ color: 'var(--primary)' }}>*</span>
+          Email
         </label>
         <input
           type="email"
-          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
@@ -102,10 +60,9 @@ export default function ContactForm() {
 
       <div style={{ marginBottom: '1.5rem' }}>
         <label style={{ display: 'block', fontWeight: 500, fontSize: '0.875rem', color: 'var(--text)', marginBottom: '0.4rem' }}>
-          Message <span style={{ color: 'var(--primary)' }}>*</span>
+          Message
         </label>
         <textarea
-          required
           rows={6}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -114,29 +71,27 @@ export default function ContactForm() {
         />
       </div>
 
-      {error && (
-        <div style={{ backgroundColor: '#fff0f3', border: '1px solid #ffccd5', borderRadius: '10px', padding: '0.75rem 1rem', color: '#c0392b', fontSize: '0.875rem', marginBottom: '1.25rem' }}>
-          {error}
-        </div>
-      )}
-
-      <button
-        type="submit"
-        disabled={loading}
+      <a
+        href={mailtoHref}
         style={{
+          display: 'block',
           width: '100%',
-          backgroundColor: loading ? 'var(--primary-light)' : 'var(--primary)',
+          backgroundColor: 'var(--primary)',
           color: '#fff',
           padding: '0.85rem',
           borderRadius: '999px',
-          border: 'none',
           fontWeight: 600,
           fontSize: '0.95rem',
-          cursor: loading ? 'not-allowed' : 'pointer',
+          textDecoration: 'none',
+          textAlign: 'center',
         }}
       >
-        {loading ? 'Sending…' : 'Send Message'}
-      </button>
-    </form>
+        Send Message
+      </a>
+
+      <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', textAlign: 'center', marginTop: '0.75rem' }}>
+        This will open your email app with the message pre-filled.
+      </p>
+    </div>
   )
 }
