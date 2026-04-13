@@ -28,6 +28,36 @@ const DEMO_IMAGE_POSTS: Post[] = [
     image_url: '/gallery/IMG_5634.png',
     post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
   },
+  {
+    id: 'demo-5', created_at: new Date().toISOString(), author_name: 'Anonymous',
+    title: 'This Is Love', content: null,
+    image_url: '/gallery/IMG_5632.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'demo-6', created_at: new Date().toISOString(), author_name: 'Anonymous',
+    title: 'Compass', content: null,
+    image_url: '/gallery/IMG_5629.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'demo-7', created_at: new Date().toISOString(), author_name: 'Anonymous',
+    title: 'Expression', content: null,
+    image_url: '/gallery/IMG_5631.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'demo-8', created_at: new Date().toISOString(), author_name: 'Anonymous',
+    title: 'Marks', content: null,
+    image_url: '/gallery/IMG_5630.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'demo-9', created_at: new Date().toISOString(), author_name: 'Anonymous',
+    title: 'Merkaba', content: null,
+    image_url: '/gallery/IMG_4480.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
 ]
 
 const DEMO_TEXT_POSTS: Post[] = [

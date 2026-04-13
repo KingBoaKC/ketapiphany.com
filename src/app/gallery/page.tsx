@@ -41,6 +41,41 @@ const DEMO_POSTS: Post[] = [
     image_url: '/gallery/IMG_5634.png',
     post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
   },
+  {
+    id: 'd5', created_at: '2026-04-13T10:00:00Z', author_name: 'Anonymous',
+    title: 'This Is Love',
+    content: null,
+    image_url: '/gallery/IMG_5632.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'd6', created_at: '2026-04-13T09:00:00Z', author_name: 'Anonymous',
+    title: 'Compass',
+    content: null,
+    image_url: '/gallery/IMG_5629.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'd7', created_at: '2026-04-13T08:00:00Z', author_name: 'Anonymous',
+    title: 'Expression',
+    content: null,
+    image_url: '/gallery/IMG_5631.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'd8', created_at: '2026-04-13T07:00:00Z', author_name: 'Anonymous',
+    title: 'Marks',
+    content: null,
+    image_url: '/gallery/IMG_5630.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'd9', created_at: '2026-04-13T06:00:00Z', author_name: 'Anonymous',
+    title: 'Merkaba',
+    content: null,
+    image_url: '/gallery/IMG_4480.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
 ]
 
 async function getImagePosts(): Promise<Post[]> {
