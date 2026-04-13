@@ -43,3 +43,19 @@ create policy "anyone can upload images"
 create policy "public can view images"
   on storage.objects for select
   using (bucket_id = 'submissions');
+
+-- Reports table (for flagged content)
+create table if not exists reports (
+  id uuid default gen_random_uuid() primary key,
+  created_at timestamp with time zone default now(),
+  post_id uuid references posts(id) on delete cascade,
+  reason text not null
+);
+
+-- Only service role can read reports (admin panel)
+alter table reports enable row level security;
+
+-- Anyone can submit a report
+create policy "anyone can report"
+  on reports for insert
+  with check (true);

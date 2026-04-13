@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import WritingsFilters from '@/components/WritingsFilters'
+import ReportButton from '@/components/ReportButton'
 import { Post, PostCategory } from '@/lib/types'
 import Link from 'next/link'
 
@@ -208,13 +209,16 @@ export default async function WritingsPage({ searchParams }: PageProps) {
                   <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                     by {post.author_name}
                   </span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                    {new Date(post.created_at).toLocaleDateString('en-US', {
-                      month: 'long',
-                      day: 'numeric',
-                      year: 'numeric',
-                    })}
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                      {new Date(post.created_at).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </span>
+                    <ReportButton postId={post.id} />
+                  </div>
                 </div>
               </article>
             )

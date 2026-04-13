@@ -1,6 +1,7 @@
 'use client'
 
 import { Post } from '@/lib/types'
+import ReportButton from '@/components/ReportButton'
 
 const categoryColors: Record<string, string> = {
   art: 'var(--accent-pink)',
@@ -119,13 +120,16 @@ export default function GalleryCard({ post }: GalleryCardProps) {
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             by {post.author_name}
           </span>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            {new Date(post.created_at).toLocaleDateString('en-US', {
-              month: 'short',
-              day: 'numeric',
-              year: 'numeric',
-            })}
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              {new Date(post.created_at).toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+              })}
+            </span>
+            <ReportButton postId={post.id} />
+          </div>
         </div>
       </div>
     </article>

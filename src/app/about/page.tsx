@@ -79,6 +79,53 @@ export default function AboutPage() {
         </p>
       </div>
 
+      {/* The origin story */}
+      <div
+        style={{
+          background: 'linear-gradient(135deg, rgba(108,99,255,0.07) 0%, rgba(248,180,217,0.1) 100%)',
+          border: '1px solid var(--border)',
+          borderRadius: '20px',
+          padding: '2.5rem',
+          marginBottom: '3rem',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: -40,
+            right: -40,
+            width: 180,
+            height: 180,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%)',
+          }}
+        />
+        <span style={{ fontSize: '2rem', display: 'block', marginBottom: '1rem' }}>✨</span>
+        <h2
+          style={{
+            fontFamily: 'Georgia, serif',
+            fontSize: '1.5rem',
+            fontWeight: 400,
+            color: 'var(--text)',
+            marginBottom: '1rem',
+          }}
+        >
+          Ketapiphany was itself a ketapiphany.
+        </h2>
+        <p style={{ color: 'var(--text-muted)', lineHeight: 1.85, marginBottom: '1rem' }}>
+          The idea for this space didn&apos;t come from a boardroom or a business plan.
+          It came through — the way the most real things do — during a ketamine session.
+          A moment of sudden, quiet clarity: <em style={{ color: 'var(--text)' }}>what if the things we discover in here could reach the people who need them out there?</em>
+        </p>
+        <p style={{ color: 'var(--text-muted)', lineHeight: 1.85 }}>
+          That&apos;s what a ketapiphany is. An epiphany that arrives through the medicine.
+          And that&apos;s what this whole place is — a ketapiphany made real, shared with you.
+        </p>
+      </div>
+
       {/* Mission */}
       <div
         style={{
