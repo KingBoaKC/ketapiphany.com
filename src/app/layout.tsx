@@ -10,10 +10,15 @@ export const metadata: Metadata = {
   title: 'Ketapiphany — A Gallery of Healing & Discovery',
   description:
     'A community space for sharing art, poetry, journals, and stories born from ketamine therapy sessions. A place of healing, creativity, and connection.',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     title: 'Ketapiphany',
     description: 'Share your healing. Discover others.',
     siteName: 'Ketapiphany',
+    images: [{ url: '/logo.png' }],
   },
 }
 

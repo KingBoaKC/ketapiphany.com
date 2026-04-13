@@ -22,6 +22,12 @@ const DEMO_IMAGE_POSTS: Post[] = [
     image_url: '/gallery/IMG_5614.png',
     post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
   },
+  {
+    id: 'demo-4', created_at: new Date().toISOString(), author_name: 'Anonymous',
+    title: 'Language of the In-Between', content: null,
+    image_url: '/gallery/IMG_5634.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
 ]
 
 const DEMO_TEXT_POSTS: Post[] = [

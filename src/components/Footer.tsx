@@ -11,17 +11,14 @@ export default function Footer() {
     >
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <span
-            style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: '1.1rem',
-              fontWeight: 600,
-              color: 'var(--primary)',
-            }}
-          >
-            Ketapiphany
-          </span>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '0.25rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="Ketapiphany" style={{ height: 28, width: 'auto' }} />
+            <span style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', fontWeight: 600, color: 'var(--primary)' }}>
+              Ketapiphany
+            </span>
+          </div>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
             A space for healing, art, and discovery.
           </p>
         </div>

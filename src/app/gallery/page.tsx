@@ -34,6 +34,13 @@ const DEMO_POSTS: Post[] = [
     image_url: '/gallery/IMG_5614.png',
     post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
   },
+  {
+    id: 'd4', created_at: '2026-04-12T11:00:00Z', author_name: 'Anonymous',
+    title: 'Language of the In-Between',
+    content: null,
+    image_url: '/gallery/IMG_5634.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
 ]
 
 async function getImagePosts(): Promise<Post[]> {
