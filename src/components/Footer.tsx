@@ -43,9 +43,17 @@ export default function Footer() {
           ))}
         </nav>
 
-        <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
-          © 2026 Ketapiphany. Proudly powered by NoodleNugget.
-        </p>
+        <div style={{ textAlign: 'center' }}>
+          <a
+            href="mailto:ketapiphany@gmail.com"
+            style={{ color: 'var(--primary)', fontSize: '0.85rem', textDecoration: 'none', display: 'block', marginBottom: '0.35rem' }}
+          >
+            ketapiphany@gmail.com
+          </a>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
+            © 2026 Ketapiphany. Proudly powered by NoodleNugget.
+          </p>
+        </div>
       </div>
     </footer>
   )
