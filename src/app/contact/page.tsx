@@ -1,0 +1,56 @@
+import type { Metadata } from 'next'
+import ContactForm from '@/components/ContactForm'
+
+export const metadata: Metadata = {
+  title: 'Contact — Ketapiphany',
+  description: 'Get in touch with the Ketapiphany team.',
+}
+
+export default function ContactPage() {
+  return (
+    <div className="max-w-2xl mx-auto px-6 py-20">
+      <div className="text-center mb-12">
+        <span
+          style={{
+            display: 'inline-block',
+            backgroundColor: 'var(--primary-faint)',
+            color: 'var(--primary)',
+            fontSize: '0.8rem',
+            fontWeight: 600,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            padding: '0.35rem 1rem',
+            borderRadius: '999px',
+            marginBottom: '1.25rem',
+          }}
+        >
+          Get in touch
+        </span>
+        <h1
+          style={{
+            fontFamily: 'Georgia, serif',
+            fontSize: '2.25rem',
+            fontWeight: 400,
+            color: 'var(--text)',
+            marginBottom: '0.75rem',
+          }}
+        >
+          We&apos;d love to hear from you
+        </h1>
+        <p style={{ color: 'var(--text-muted)', lineHeight: 1.75 }}>
+          Questions, feedback, or just want to say hello — reach out using the
+          form below or email us directly at{' '}
+          <a
+            href="mailto:noodlenuggetllc@gmail.com"
+            style={{ color: 'var(--primary)', textDecoration: 'none' }}
+          >
+            noodlenuggetllc@gmail.com
+          </a>
+          .
+        </p>
+      </div>
+
+      <ContactForm />
+    </div>
+  )
+}

@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #6c63ff;
+  --primary-light: #9d97ff;
+  --primary-faint: #f0eeff;
+  --accent-pink: #f8b4d9;
+  --accent-peach: #ffd8b4;
+  --accent-mint: #b4f0e0;
+  --bg: #fdf8f6;
+  --surface: #ffffff;
+  --border: #ede8f5;
+  --text: #2d2d3e;
+  --text-muted: #8888a4;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--primary-faint);
+  color: var(--primary);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Masonry grid */
+.masonry-grid {
+  display: flex;
+  margin-left: -20px;
+  width: auto;
+}
+.masonry-column {
+  padding-left: 20px;
+  background-clip: padding-box;
+}
+
+/* Orb animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.03); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(14px) scale(0.97); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.orb-1 { animation: float 7s ease-in-out infinite; }
+.orb-2 { animation: float2 9s ease-in-out infinite; }
+.orb-3 { animation: float 11s ease-in-out infinite 1s; }
+
+.fade-up { animation: fadeUp 0.8s ease forwards; }
+.fade-up-delay-1 { animation: fadeUp 0.8s ease 0.15s forwards; opacity: 0; }
+.fade-up-delay-2 { animation: fadeUp 0.8s ease 0.3s forwards; opacity: 0; }
+.fade-up-delay-3 { animation: fadeUp 0.8s ease 0.45s forwards; opacity: 0; }
+
+.skeleton {
+  background: linear-gradient(90deg, #f0eeff 25%, #e8e4ff 50%, #f0eeff 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
