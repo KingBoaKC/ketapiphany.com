@@ -98,7 +98,7 @@ export default async function HomePage() {
 
           <h1 className="fade-up-delay-1" style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 400, lineHeight: 1.15, letterSpacing: '-0.02em', color: 'var(--text)', marginBottom: '1.5rem' }}>
             Where healing{' '}
-            <em style={{ color: 'var(--primary)', fontStyle: 'italic' }}>becomes</em>
+            <span style={{ color: 'var(--primary)' }}>becomes</span>
             <br />something beautiful.
           </h1>
 

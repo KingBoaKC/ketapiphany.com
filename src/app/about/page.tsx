@@ -118,7 +118,7 @@ export default function AboutPage() {
         <p style={{ color: 'var(--text-muted)', lineHeight: 1.85, marginBottom: '1rem' }}>
           The idea for this space didn&apos;t come from a boardroom or a business plan.
           It came through — the way the most real things do — during a ketamine session.
-          A moment of sudden, quiet clarity: <em style={{ color: 'var(--text)' }}>what if the things we discover in here could reach the people who need them out there?</em>
+          A moment of sudden, quiet clarity: what if the things we discover in here could reach the people who need them out there?
         </p>
         <p style={{ color: 'var(--text-muted)', lineHeight: 1.85 }}>
           That&apos;s what a ketapiphany is. An epiphany that arrives through the medicine.
