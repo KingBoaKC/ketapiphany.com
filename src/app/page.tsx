@@ -173,7 +173,7 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {imagePosts.slice(0, 3).map((post) => (
             <Link
               key={post.id}

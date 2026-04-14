@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Post } from '@/lib/types'
 
 interface GalleryGridProps {
@@ -9,6 +9,7 @@ interface GalleryGridProps {
 
 export default function GalleryGrid({ posts }: GalleryGridProps) {
   const [active, setActive] = useState<number | null>(null)
+  const touchStartX = useRef<number | null>(null)
 
   const close = useCallback(() => setActive(null), [])
   const prev = useCallback(() =>
@@ -120,6 +121,13 @@ export default function GalleryGrid({ posts }: GalleryGridProps) {
             flexDirection: 'column',
           }}
           onClick={close}
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return
+            const dx = e.changedTouches[0].clientX - touchStartX.current
+            if (Math.abs(dx) > 50) { dx < 0 ? next() : prev() }
+            touchStartX.current = null
+          }}
         >
           {/* Top bar */}
           <div
