@@ -91,7 +91,7 @@ export default function WelcomeModal() {
         >
           {[
             'Treat all members and their experiences with kindness and respect',
-            'Do not post hateful, discriminatory, or harmful content',
+            'Do not post hateful, discriminatory, sexual, or otherwise harmful content',
             'Honor the vulnerability it takes to share',
           ].map((rule) => (
             <li
