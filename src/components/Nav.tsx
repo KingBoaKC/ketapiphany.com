@@ -26,13 +26,9 @@ export default function Nav() {
       }}
       className="sticky top-0 z-50"
     >
-      {/* Mobile: 3-col grid so logo sits in center column; desktop: flex row */}
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-3 md:flex items-center md:justify-between h-44 md:h-40">
-        {/* Left spacer — mobile only, balances the hamburger on the right */}
-        <div className="md:hidden" />
-
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-44 md:h-40">
         {/* Logo */}
-        <Link href="/" className="flex items-center justify-center md:justify-start gap-2 no-underline">
+        <Link href="/" className="flex items-center gap-2 no-underline">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo.png"
@@ -96,9 +92,9 @@ export default function Nav() {
           </Link>
         </nav>
 
-        {/* Mobile hamburger — right column */}
+        {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 justify-self-end self-center"
+          className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
