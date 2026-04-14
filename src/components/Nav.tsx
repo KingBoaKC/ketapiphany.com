@@ -98,7 +98,7 @@ export default function Nav() {
 
         {/* Mobile hamburger — right column */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 justify-self-end"
+          className="md:hidden flex flex-col gap-1.5 p-2 justify-self-end self-center"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >

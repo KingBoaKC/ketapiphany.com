@@ -124,7 +124,7 @@ export default async function HomePage() {
           <div className="orb-3 absolute" style={{ width: 200, height: 200, borderRadius: '50%', background: 'radial-gradient(circle, rgba(180,240,224,0.25) 0%, transparent 70%)', top: '40%', left: '45%' }} />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 py-24 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 py-10 md:py-24 text-center">
           <div className="fade-up">
             <span style={{ display: 'inline-block', backgroundColor: 'var(--primary-faint)', color: 'var(--primary)', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '0.35rem 1rem', borderRadius: '999px', marginBottom: '1.5rem' }}>
               A Community Gallery
@@ -158,8 +158,8 @@ export default async function HomePage() {
       </section>
 
       {/* Recent Art */}
-      <section className="max-w-6xl mx-auto px-6 pb-16">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+      <section className="max-w-6xl mx-auto px-6 pb-8 md:pb-16">
+        <div className="flex items-center justify-between gap-4 mb-8">
           <div>
             <h2 style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--text)', fontFamily: 'Georgia, serif' }}>
               Recent Art
@@ -199,11 +199,11 @@ export default async function HomePage() {
       </section>
 
       {/* Divider */}
-      <div style={{ maxWidth: '6rem', margin: '0 auto 4rem', height: 2, background: 'linear-gradient(to right, transparent, var(--border), transparent)' }} />
+      <div style={{ maxWidth: '6rem', margin: '0 auto 2rem', height: 2, background: 'linear-gradient(to right, transparent, var(--border), transparent)' }} className="md:my-16" />
 
       {/* Recent Writings */}
-      <section className="max-w-3xl mx-auto px-6 pb-24">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+      <section className="max-w-3xl mx-auto px-6 pb-12 md:pb-24">
+        <div className="flex items-center justify-between gap-4 mb-8">
           <div>
             <h2 style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--text)', fontFamily: 'Georgia, serif' }}>
               Recent Writings
@@ -243,7 +243,7 @@ export default async function HomePage() {
       </section>
 
       {/* CTA Banner */}
-      <section style={{ background: 'linear-gradient(135deg, var(--primary-faint) 0%, rgba(248,180,217,0.15) 100%)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }} className="py-20">
+      <section style={{ background: 'linear-gradient(135deg, var(--primary-faint) 0%, rgba(248,180,217,0.15) 100%)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }} className="py-10 md:py-20">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', fontWeight: 400, color: 'var(--text)', marginBottom: '1rem' }}>
             Have something to share?
