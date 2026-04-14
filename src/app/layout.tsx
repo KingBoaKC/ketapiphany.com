@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ketapiphany.com'),
   title: 'Ketapiphany — A Gallery of Healing & Discovery',
   description:
     'A community space for sharing art, poetry, journals, and stories born from ketamine therapy sessions. A place of healing, creativity, and connection.',
@@ -18,7 +19,13 @@ export const metadata: Metadata = {
     title: 'Ketapiphany',
     description: 'Share your healing. Discover others.',
     siteName: 'Ketapiphany',
-    images: [{ url: '/logo.png' }],
+    images: [{ url: '/logo.png', width: 1536, height: 1024, alt: 'Ketapiphany' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ketapiphany',
+    description: 'Share your healing. Discover others.',
+    images: ['/logo.png'],
   },
 }
 
