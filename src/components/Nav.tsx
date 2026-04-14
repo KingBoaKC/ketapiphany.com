@@ -26,14 +26,18 @@ export default function Nav() {
       }}
       className="sticky top-0 z-50"
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-36 md:h-40">
+      {/* Mobile: 3-col grid so logo sits in center column; desktop: flex row */}
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-3 md:flex items-center md:justify-between h-44 md:h-40">
+        {/* Left spacer — mobile only, balances the hamburger on the right */}
+        <div className="md:hidden" />
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 no-underline">
+        <Link href="/" className="flex items-center justify-center md:justify-start gap-2 no-underline">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo.png"
             alt="Ketapiphany"
-            className="h-32 md:h-36 w-auto"
+            className="h-40 md:h-36 w-auto"
           />
           <span
             className="hidden md:inline"
@@ -92,9 +96,9 @@ export default function Nav() {
           </Link>
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger — right column */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 justify-self-end"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
