@@ -51,7 +51,7 @@ export default function WelcomeModal() {
         <img
           src="/logo.png"
           alt="Ketapiphany"
-          style={{ height: 72, width: 'auto', margin: '0 auto 1.25rem', display: 'block' }}
+          style={{ height: 180, width: 'auto', margin: '0 auto 1.25rem', display: 'block' }}
         />
 
         <h2
