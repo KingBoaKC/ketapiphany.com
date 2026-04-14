@@ -15,25 +15,25 @@ const DEMO_POSTS: Post[] = [
   {
     id: 'w1', created_at: '2026-04-12T10:00:00Z', author_name: 'River',
     title: 'The Door Was Made of Light',
-    content: 'I saw a door made entirely of soft light — not blinding, just warm. Like sunlight through linen. I walked through and on the other side was a version of me I hadn\'t met yet. She was smiling. I think I\'ve been looking for her my whole life.',
+    content: 'There was this door. Made of light but not the blinding kind, more like morning light coming through curtains. I walked through it and there was another version of me on the other side. She looked happy. Actually happy. I started crying when I came out of the session because I realized I haven\'t felt like that in a really long time.',
     image_url: null, post_type: 'text', category: 'journal', status: 'approved', moderator_notes: null,
   },
   {
     id: 'w2', created_at: '2026-04-11T20:15:00Z', author_name: 'Sol',
     title: 'Small Things',
-    content: 'the kettle whistles\nand I am still here —\nstill tender,\nstill belonging\nto something\nlarger than fear.',
+    content: 'the kettle whistles\nand i think\nokay, i\'m still here\nstill soft somehow\nstill mine',
     image_url: null, post_type: 'text', category: 'poetry', status: 'approved', moderator_notes: null,
   },
   {
     id: 'w3', created_at: '2026-04-10T11:30:00Z', author_name: 'Anonymous',
     title: 'I Forgave My Mother',
-    content: 'Not all at once. It came in waves — first just seeing her as a child herself, scared and doing what she knew. Then something loosened in my chest I didn\'t know was there. Three sessions. A lifetime of holding.',
+    content: 'It didn\'t happen all at once. During the second session I saw her as a little kid, maybe 7 or 8, and she was scared. I don\'t know where that image came from but I couldn\'t stay as angry after that. There\'s still stuff I\'m working through. But something in my chest loosened that I didn\'t even know was tight.',
     image_url: null, post_type: 'text', category: 'journal', status: 'approved', moderator_notes: null,
   },
   {
     id: 'w4', created_at: '2026-04-09T08:45:00Z', author_name: 'Elara',
     title: 'When I Was The Ocean',
-    content: 'There is a story I need to tell about the day I became water. Not metaphorically — at least it didn\'t feel that way. I dissolved into something vast and there was no grief there, no weight. Just movement. I understood, briefly, what it means to be part of everything.',
+    content: 'I know this sounds weird but at some point I just became the ocean. Not like a metaphor, it actually felt that way. I wasn\'t a person anymore, I was just water moving. There was nothing heavy in it. No anxiety, nothing. Just this feeling of going along with everything. I keep trying to remember what that felt like.',
     image_url: null, post_type: 'text', category: 'story', status: 'approved', moderator_notes: null,
   },
 ]

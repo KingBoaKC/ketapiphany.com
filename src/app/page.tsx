@@ -63,13 +63,13 @@ const DEMO_TEXT_POSTS: Post[] = [
   {
     id: 'demo-t1', created_at: new Date().toISOString(), author_name: 'River',
     title: 'The Door Was Made of Light',
-    content: 'I saw a door made entirely of soft light — not blinding, just warm. Like sunlight through linen. I walked through and on the other side was a version of me I hadn\'t met yet. She was smiling.',
+    content: 'There was this door. Made of light but not the blinding kind, more like morning light coming through curtains. I walked through it and there was another version of me. She looked actually happy. I started crying when I came out of the session.',
     image_url: null, post_type: 'text', category: 'journal', status: 'approved', moderator_notes: null,
   },
   {
     id: 'demo-t2', created_at: new Date().toISOString(), author_name: 'Sol',
     title: 'Small Things',
-    content: 'the kettle whistles\nand I am still here —\nstill tender,\nstill belonging\nto something\nlarger than fear.',
+    content: 'the kettle whistles\nand i think\nokay, i\'m still here\nstill soft somehow\nstill mine',
     image_url: null, post_type: 'text', category: 'poetry', status: 'approved', moderator_notes: null,
   },
 ]
