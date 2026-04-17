@@ -13,6 +13,13 @@ export const revalidate = 60
 
 const DEMO_POSTS: Post[] = [
   {
+    id: 'd0', created_at: '2026-04-16T10:00:00Z', author_name: 'King Boaz',
+    title: 'Eyes in the Threshold',
+    content: null,
+    image_url: '/gallery/eyes-in-the-threshold.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
     id: 'd1', created_at: '2026-04-12T14:22:00Z', author_name: 'King Boaz',
     title: 'The Dancer',
     content: null,
