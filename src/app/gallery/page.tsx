@@ -13,6 +13,20 @@ export const revalidate = 60
 
 const DEMO_POSTS: Post[] = [
   {
+    id: 'd-new2', created_at: '2026-04-18T12:00:00Z', author_name: 'King Boaz',
+    title: 'The Field Receives',
+    content: null,
+    image_url: '/gallery/the-field-receives.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'd-new1', created_at: '2026-04-18T11:00:00Z', author_name: 'King Boaz',
+    title: 'The Pull',
+    content: null,
+    image_url: '/gallery/the-pull.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
     id: 'd0', created_at: '2026-04-16T10:00:00Z', author_name: 'King Boaz',
     title: 'Eyes in the Threshold',
     content: null,

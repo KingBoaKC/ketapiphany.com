@@ -4,6 +4,18 @@ import { Post } from '@/lib/types'
 
 const DEMO_IMAGE_POSTS: Post[] = [
   {
+    id: 'demo-new2', created_at: new Date().toISOString(), author_name: 'King Boaz',
+    title: 'The Field Receives', content: null,
+    image_url: '/gallery/the-field-receives.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
+    id: 'demo-new1', created_at: new Date().toISOString(), author_name: 'King Boaz',
+    title: 'The Pull', content: null,
+    image_url: '/gallery/the-pull.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
     id: 'demo-0', created_at: new Date().toISOString(), author_name: 'King Boaz',
     title: 'Eyes in the Threshold', content: null,
     image_url: '/gallery/eyes-in-the-threshold.png',
