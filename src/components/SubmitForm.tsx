@@ -4,8 +4,11 @@ import { useState, useRef } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { PostCategory, PostType } from '@/lib/types'
 
-const categories: { value: PostCategory; label: string; desc: string }[] = [
+const imageCategories: { value: PostCategory; label: string; desc: string }[] = [
   { value: 'art', label: 'Art', desc: 'Drawings, paintings, digital art' },
+]
+
+const textCategories: { value: PostCategory; label: string; desc: string }[] = [
   { value: 'poetry', label: 'Poetry', desc: 'Poems and verse' },
   { value: 'journal', label: 'Journal', desc: 'Personal reflections' },
   { value: 'story', label: 'Story', desc: 'Narratives and experiences' },
@@ -149,7 +152,11 @@ export default function SubmitForm() {
             {(['text', 'image'] as PostType[]).map((t) => (
               <button
                 key={t}
-                onClick={() => { setPostType(t); setStep('category') }}
+                onClick={() => {
+                  setPostType(t)
+                  if (t === 'image') { setCategory('art'); setStep('details') }
+                  else setStep('category')
+                }}
                 style={{
                   flex: 1,
                   padding: '1.5rem',
@@ -192,7 +199,7 @@ export default function SubmitForm() {
             How would you describe this piece?
           </p>
           <div className="grid grid-cols-2 gap-3">
-            {categories.map((c) => (
+            {(postType === 'image' ? imageCategories : textCategories).map((c) => (
               <button
                 key={c.value}
                 onClick={() => { setCategory(c.value); setStep('details') }}
