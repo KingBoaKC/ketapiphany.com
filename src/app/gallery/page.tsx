@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import GalleryGrid from '@/components/GalleryGrid'
 import { Post } from '@/lib/types'
+import { DEMO_IMAGE_POSTS } from '@/lib/demo-posts'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -11,92 +12,6 @@ export const metadata: Metadata = {
 
 export const revalidate = 60
 
-const DEMO_POSTS: Post[] = [
-  {
-    id: 'd-new2', created_at: '2026-04-18T12:00:00Z', author_name: 'King Boaz',
-    title: 'The Field Receives',
-    content: null,
-    image_url: '/gallery/the-field-receives.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd-new1', created_at: '2026-04-18T11:00:00Z', author_name: 'King Boaz',
-    title: 'The Pull',
-    content: null,
-    image_url: '/gallery/the-pull.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd0', created_at: '2026-04-16T10:00:00Z', author_name: 'King Boaz',
-    title: 'Eyes in the Threshold',
-    content: null,
-    image_url: '/gallery/eyes-in-the-threshold.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd1', created_at: '2026-04-12T14:22:00Z', author_name: 'King Boaz',
-    title: 'The Dancer',
-    content: null,
-    image_url: '/gallery/IMG_5616.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd2', created_at: '2026-04-12T13:00:00Z', author_name: 'King Boaz',
-    title: 'The Eye',
-    content: null,
-    image_url: '/gallery/IMG_5615.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd3', created_at: '2026-04-12T12:00:00Z', author_name: 'King Boaz',
-    title: 'Seeing',
-    content: null,
-    image_url: '/gallery/IMG_5614.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd4', created_at: '2026-04-12T11:00:00Z', author_name: 'King Boaz',
-    title: 'Language of the In-Between',
-    content: null,
-    image_url: '/gallery/IMG_5634.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd5', created_at: '2026-04-13T10:00:00Z', author_name: 'King Boaz',
-    title: 'This Is Love',
-    content: null,
-    image_url: '/gallery/IMG_5632.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd6', created_at: '2026-04-13T09:00:00Z', author_name: 'King Boaz',
-    title: 'Compass',
-    content: null,
-    image_url: '/gallery/IMG_5629.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd7', created_at: '2026-04-13T08:00:00Z', author_name: 'King Boaz',
-    title: 'Expression',
-    content: null,
-    image_url: '/gallery/IMG_5631.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd8', created_at: '2026-04-13T07:00:00Z', author_name: 'King Boaz',
-    title: 'Marks',
-    content: null,
-    image_url: '/gallery/IMG_5630.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-  {
-    id: 'd9', created_at: '2026-04-13T06:00:00Z', author_name: 'King Boaz',
-    title: 'Merkaba',
-    content: null,
-    image_url: '/gallery/IMG_4480.png',
-    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
-  },
-]
 
 async function getImagePosts(): Promise<Post[]> {
   try {
@@ -108,10 +23,10 @@ async function getImagePosts(): Promise<Post[]> {
       .eq('post_type', 'image')
       .order('created_at', { ascending: false })
 
-    if (error || !data || data.length === 0) return DEMO_POSTS
+    if (error || !data || data.length === 0) return DEMO_IMAGE_POSTS
     return data as Post[]
   } catch {
-    return DEMO_POSTS
+    return DEMO_IMAGE_POSTS
   }
 }
 

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Post, PostCategory } from '@/lib/types'
 import ReportButton from '@/components/ReportButton'
+import ShareButton from '@/components/ShareButton'
 
 const filters: { label: string; value: PostCategory | undefined }[] = [
   { label: 'All', value: undefined },
@@ -110,6 +111,7 @@ export default function WritingsContent({ posts }: { posts: Post[] }) {
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                       {new Date(post.created_at).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                     </span>
+                    <ShareButton postId={post.id} title={post.title} small />
                     <ReportButton postId={post.id} />
                   </div>
                 </div>

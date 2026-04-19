@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Post } from '@/lib/types'
+import ShareButton from '@/components/ShareButton'
 
 interface GalleryGridProps {
   posts: Post[]
@@ -158,9 +159,12 @@ export default function GalleryGrid({ posts }: GalleryGridProps) {
               ← Gallery
             </button>
 
-            <span style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem' }}>
-              {active + 1} / {posts.length}
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <ShareButton postId={activePost.id} title={activePost.title} small />
+              <span style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem' }}>
+                {active + 1} / {posts.length}
+              </span>
+            </div>
           </div>
 
           {/* Image area */}
