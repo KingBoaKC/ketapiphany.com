@@ -2,6 +2,12 @@ import { Post } from './types'
 
 export const DEMO_IMAGE_POSTS: Post[] = [
   {
+    id: 'd-new3', created_at: '2026-04-19T12:00:00Z', author_name: 'King Boaz',
+    title: 'Amor', content: null,
+    image_url: '/gallery/amor.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
     id: 'd-new2', created_at: '2026-04-18T12:00:00Z', author_name: 'King Boaz',
     title: 'The Field Receives', content: null,
     image_url: '/gallery/the-field-receives.png',
