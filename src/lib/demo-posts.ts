@@ -2,6 +2,12 @@ import { Post } from './types'
 
 export const DEMO_IMAGE_POSTS: Post[] = [
   {
+    id: 'd-new5', created_at: '2026-05-01T12:00:00Z', author_name: 'King Boaz',
+    title: 'Overwatch', content: null,
+    image_url: '/gallery/overwatch.png',
+    post_type: 'image', category: 'art', status: 'approved', moderator_notes: null,
+  },
+  {
     id: 'd-new4', created_at: '2026-04-22T12:00:00Z', author_name: 'King Boaz',
     title: "I'm Still Haunted", content: null,
     image_url: '/gallery/im-still-haunted.png',
